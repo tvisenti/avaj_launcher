@@ -1,5 +1,5 @@
-# find *.java > sources.txt
-# javac -sourcepath @sources.txt
-javac Simulator.java
+find *.java > sources.txt
+javac @sources.txt
+# javac Simulator.java
 java Simulator scenario.txt
-rm *.class
+rm *.class sources.txt

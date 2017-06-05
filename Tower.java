@@ -1,6 +1,11 @@
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
 public class Tower  {
-    // Flyable observers; pas encore compris
-    protected long nbChange = 0;
+    private static List<IFlyable> observers = new ArrayList<IFlyable>();
+
   public void register(IFlyable flyable) {
     switch (flyable.getClass().getName()) {
       case "Baloon": {
@@ -17,9 +22,11 @@ public class Tower  {
         break;
       }
     }
+    observers.add(flyable);
   }
 
   public void unregister(IFlyable flyable) {
+    observers.remove(flyable);
     switch (flyable.getClass().getName()) {
       case "Baloon": {
         Baloon baloon = Baloon.class.cast(flyable);
@@ -38,6 +45,8 @@ public class Tower  {
   }
 
   protected void conditionsChanged() {
-
+    for (int i = 0; i < observers.size(); i++) {
+      observers.get(i).updateConditions();
+    }
   }
 }

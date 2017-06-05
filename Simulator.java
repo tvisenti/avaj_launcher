@@ -11,23 +11,24 @@ public class Simulator {
             Path path = Paths.get(args[0]);
             AircraftFactory factory = new AircraftFactory();
             IFlyable flyable;
+            WeatherTower weatherTower = new WeatherTower();
             Tower tower = new Tower();
             Pattern pattern;
             Matcher matcher;
-            int i;
+            long generatorWeather = 0;
 
             try {
                 lines = Files.readAllLines(path, StandardCharsets.UTF_8);
                 pattern = Pattern.compile("([0-9]+)");
                 matcher = pattern.matcher(lines.get(0));
                 if (matcher.find() && matcher.group() == lines.get(0)) {
-                    tower.nbChange = Long.parseLong(matcher.group(1));
+                    generatorWeather = Long.parseLong(matcher.group(1));
                 } else {
                     System.out.println("Error line: " + lines.get(0));
                     return;
                 }
                 pattern = Pattern.compile("(Baloon|JetPlane|Helicopter) ([A-Za-z0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)");
-                for (i = 1; i < lines.size(); i++) {
+                for (int i = 1; i < lines.size(); i++) {
                     matcher = pattern.matcher(lines.get(i));
                     if (matcher.find() && matcher.group() == lines.get(i)) {
                         int height = (Integer.parseInt(matcher.group(5)) > 100) ? 100 : Integer.parseInt(matcher.group(5));
@@ -43,6 +44,10 @@ public class Simulator {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+            
+            for (int i = 0; i < generatorWeather; i++) {
+                weatherTower.changeWeather();
             }
 
         } else {

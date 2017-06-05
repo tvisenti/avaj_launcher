@@ -1,16 +1,14 @@
 public class WeatherProvider {
-    private WeatherProvider weatherProvider;
-    private String weather[];
+    private static WeatherProvider weatherProvider = new WeatherProvider();
+    private String weather[] = {"RAIN", "SUN", "FOG", "SNOW"};
 
-    WeatherProvider() {
-        this.weatherProvider = new WeatherProvider();
-    }
+    private WeatherProvider() {}
 
-    public WeatherProvider getProvider() {
-        return this.weatherProvider;
+    public static WeatherProvider getProvider() {
+        return WeatherProvider.weatherProvider;
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        return "RAIN";
+        return weather[(coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight()) % 4];
     }
 }
