@@ -1,7 +1,6 @@
 public class WeatherTower extends Tower {
-
   public String getWeather(Coordinates coordinates) {
-    return " ";
+    return "RAIN";
   }
 
   public void changeWeather() {

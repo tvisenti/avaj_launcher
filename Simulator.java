@@ -9,22 +9,31 @@ public class Simulator {
         if (args.length == 1) {
             List<String> lines = null;
             Path path = Paths.get(args[0]);
-            int i;
-            Pattern pattern;
-            Matcher matcher;
             AircraftFactory factory = new AircraftFactory();
             IFlyable flyable;
             Tower tower = new Tower();
+            Pattern pattern;
+            Matcher matcher;
+            int i;
 
             try {
                 lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+                pattern = Pattern.compile("([0-9]+)");
+                matcher = pattern.matcher(lines.get(0));
+                if (matcher.find() && matcher.group() == lines.get(0)) {
+                    tower.nbChange = Long.parseLong(matcher.group(1));
+                } else {
+                    System.out.println("Error line: " + lines.get(0));
+                    return;
+                }
                 pattern = Pattern.compile("(Baloon|JetPlane|Helicopter) ([A-Za-z0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)");
                 for (i = 1; i < lines.size(); i++) {
                     matcher = pattern.matcher(lines.get(i));
                     if (matcher.find() && matcher.group() == lines.get(i)) {
-                        flyable = factory.newAircraft(matcher.group(1), matcher.group(2), Integer.parseInt(matcher.group(3)), Integer.parseInt(matcher.group(4)), Integer.parseInt(matcher.group(5)));
+                        int height = (Integer.parseInt(matcher.group(5)) > 100) ? 100 : Integer.parseInt(matcher.group(5));
+
+                        flyable = factory.newAircraft(matcher.group(1), matcher.group(2), Integer.parseInt(matcher.group(3)), Integer.parseInt(matcher.group(4)), height);
                         tower.register(flyable);
-                        // System.out.println(matcher.group());
                     } else {
                         System.out.println("Error line: " + lines.get(i));
                         return;

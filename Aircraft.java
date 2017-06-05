@@ -14,7 +14,7 @@ public class Aircraft {
     System.out.println("Aircraft is dead");
   }
 
-  public long nextId() {
+  private long nextId() {
     return (idCounter++);
   }
 }

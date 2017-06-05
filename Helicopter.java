@@ -1,5 +1,5 @@
 public class Helicopter extends Aircraft implements IFlyable {
-  WeatherTower weatherTower;
+  private WeatherTower weatherTower;
 
   Helicopter(String name, Coordinates coordinates) {
     super(name, coordinates);

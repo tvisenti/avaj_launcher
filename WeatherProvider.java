@@ -1,9 +1,9 @@
 public class WeatherProvider {
-    WeatherProvider weatherProvider = new WeatherProvider();
-    String weather[];
+    private WeatherProvider weatherProvider;
+    private String weather[];
 
     WeatherProvider() {
-
+        this.weatherProvider = new WeatherProvider();
     }
 
     public WeatherProvider getProvider() {

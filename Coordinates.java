@@ -1,7 +1,7 @@
 public class Coordinates {
-  int longitude;
-  int latitude;
-  int height;
+  private int longitude;
+  private int latitude;
+  private int height;
 
   Coordinates(int longitude, int latitude, int height) {
     this.longitude = longitude;

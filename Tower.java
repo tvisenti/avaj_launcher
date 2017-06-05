@@ -1,6 +1,6 @@
 public class Tower  {
     // Flyable observers; pas encore compris
-
+    protected long nbChange = 0;
   public void register(IFlyable flyable) {
     switch (flyable.getClass().getName()) {
       case "Baloon": {
@@ -37,7 +37,7 @@ public class Tower  {
     }
   }
 
-  public void conditionsChanged() {
+  protected void conditionsChanged() {
 
   }
 }

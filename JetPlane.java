@@ -1,5 +1,5 @@
 public class JetPlane extends Aircraft implements IFlyable  {
-  WeatherTower weatherTower;
+  private WeatherTower weatherTower;
 
   JetPlane(String name, Coordinates coordinates) {
     super(name, coordinates);
