@@ -14,7 +14,6 @@ public class Aircraft {
   }
 
   public void finalize() {
-    System.out.println("Aircraft is dead");
   }
 
   private long nextId() {

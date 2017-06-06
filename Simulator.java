@@ -49,7 +49,7 @@ public class Simulator {
             for (int i = 0; i < generatorWeather; i++) {
                 weatherTower.changeWeather();
             }
-
+            Display.printInTxt();
         } else {
             System.out.println("Put one file");
         }

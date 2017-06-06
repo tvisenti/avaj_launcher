@@ -12,20 +12,17 @@ public class Tower {
     switch (flyable.getClass().getName()) {
     case "Baloon": {
       Baloon baloon = Baloon.class.cast(flyable);
-      System.out.println(
-          "Tower says: " + baloon.getClass() + "#" + baloon.name + "(" + baloon.id + ") registered to weather tower.");
+      Display.addString(Display.formatStringTowerBaloon(baloon, "registered to weather tower."));
       break;
     }
     case "JetPlane": {
       JetPlane jetPlane = JetPlane.class.cast(flyable);
-      System.out.println("Tower says: " + jetPlane.getClass() + "#" + jetPlane.name + "(" + jetPlane.id
-          + ") registered to weather tower.");
+      Display.addString(Display.formatStringTowerJetPlane(jetPlane, "registered to weather tower."));
       break;
     }
     case "Helicopter": {
       Helicopter helicopter = Helicopter.class.cast(flyable);
-      System.out.println("Tower says: " + helicopter.getClass() + "#" + helicopter.name + "(" + helicopter.id
-          + ") registered to weather tower.");
+      Display.addString(Display.formatStringTowerHelicopter(helicopter, "registered to weather tower."));
       break;
     }
     }
@@ -36,20 +33,17 @@ public class Tower {
     switch (flyable.getClass().getName()) {
     case "Baloon": {
       Baloon baloon = Baloon.class.cast(flyable);
-      System.out.println("Tower says: " + baloon.getClass() + "#" + baloon.name + "(" + baloon.id
-          + ") unregistered to weather tower.");
+      Display.addString(Display.formatStringTowerBaloon(baloon, "unregistered to weather tower."));
       break;
     }
     case "JetPlane": {
       JetPlane jetPlane = JetPlane.class.cast(flyable);
-      System.out.println("Tower says: " + jetPlane.getClass() + "#" + jetPlane.name + "(" + jetPlane.id
-          + ") unregistered to weather tower.");
+      Display.addString(Display.formatStringTowerJetPlane(jetPlane, "unregistered to weather tower."));
       break;
     }
     case "Helicopter": {
       Helicopter helicopter = Helicopter.class.cast(flyable);
-      System.out.println("Tower says: " + helicopter.getClass() + "#" + helicopter.name + "(" + helicopter.id
-          + ") unregistered to weather tower.");
+      Display.addString(Display.formatStringTowerHelicopter(helicopter, "unregistered to weather tower."));
       break;
     }
     }

@@ -10,30 +10,30 @@ public class Baloon extends Aircraft implements IFlyable {
 		case "RAIN": {
 			coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(),
 					coordinates.getHeight() - 5);
-			Display.addString(Display.formatString(this, "It's rain a man!"));
+			Display.addString(Display.formatStringBaloon(this, "It's rain a man!"));
 			break;
 		}
 		case "FOG": {
 			coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(),
 					coordinates.getHeight() - 3);
-			Display.addString(Display.formatString(this, "Is it pollution or fog..?"));
+			Display.addString(Display.formatStringBaloon(this, "Is it pollution or fog..?"));
 			break;
 		}
 		case "SUN": {
 			coordinates = new Coordinates(coordinates.getLongitude() + 2, coordinates.getLatitude(),
 					coordinates.getHeight() + 4);
-			Display.addString(Display.formatString(this, "Wow the view is unbeliable now!"));
+			Display.addString(Display.formatStringBaloon(this, "Wow the view is unbeliable now!"));
 			break;
 		}
 		case "SNOW": {
 			coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(),
 					coordinates.getHeight() - 15);
-			Display.addString(Display.formatString(this, "We should go down, now it's snowing.."));
+			Display.addString(Display.formatStringBaloon(this, "We should go down, now it's snowing.."));
 			break;
 		}
 		}
 		if (coordinates.getHeight() <= 0) {
-			Display.addString(Display.formatString(this, "exploded ..."));
+			Display.addString(Display.formatStringBaloon(this, "exploded ..."));
 			weatherTower.unregister(this);
 		} else if (coordinates.getHeight() > 100)
 			coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);
