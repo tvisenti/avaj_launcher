@@ -4,9 +4,6 @@ public class Aircraft {
   protected Coordinates coordinates;
   private static long idCounter = 1;
 
-  Aircraft() {
-  }
-
   Aircraft(String name, Coordinates coordinates) {
     this.id = nextId();
     this.name = name;
