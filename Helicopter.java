@@ -9,24 +9,24 @@ public class Helicopter extends Aircraft implements IFlyable {
     switch (weatherTower.getWeather(this.coordinates)) {
       case "RAIN": {
         coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): It's raining bullet bitch (like in Matrix)!");
+        Display.addString(Display.formatString(this, "It's raining bullet bitch (like in Matrix)!"));
         break;
       } case "FOG": {
         coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude(), coordinates.getHeight());
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): You shall not pass!");
+        Display.addString(Display.formatString(this, "You shall not pass!"));
         break;
       } case "SUN": {
         coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 10, coordinates.getHeight() + 2);
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): It's hot here..");
+        Display.addString(Display.formatString(this, "It's hot here.."));
         break;
       } case "SNOW": {
         coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 12);
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): Please don't freeze .....");
+        Display.addString(Display.formatString(this, "Please don't freeze ....."));
         break;
       }
     }
     if (coordinates.getHeight() <= 0) {
-      System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): is landing.");
+      Display.addString(Display.formatString(this, "is landing."));
       weatherTower.unregister(this);
     } else if (coordinates.getHeight() > 100)
       coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);

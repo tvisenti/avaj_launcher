@@ -1,8 +1,9 @@
 public class WeatherProvider {
     private static WeatherProvider weatherProvider = new WeatherProvider();
-    private String weather[] = {"RAIN", "SUN", "FOG", "SNOW"};
+    private String weather[] = { "RAIN", "SUN", "FOG", "SNOW" };
 
-    private WeatherProvider() {}
+    private WeatherProvider() {
+    }
 
     public static WeatherProvider getProvider() {
         return WeatherProvider.weatherProvider;

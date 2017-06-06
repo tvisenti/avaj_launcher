@@ -3,12 +3,12 @@ public class AircraftFactory {
     Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
     switch (type) {
-      case "Baloon":
-       return new Baloon(name, coordinates);
-      case "JetPlane":
-       return new JetPlane(name, coordinates);
-      default:
-       return new Helicopter(name, coordinates);
+    case "Baloon":
+      return new Baloon(name, coordinates);
+    case "JetPlane":
+      return new JetPlane(name, coordinates);
+    default:
+      return new Helicopter(name, coordinates);
     }
   }
 }

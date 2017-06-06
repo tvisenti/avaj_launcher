@@ -9,24 +9,24 @@ public void updateConditions() {
     switch (weatherTower.getWeather(this.coordinates)) {
       case "RAIN": {
         coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 5, coordinates.getHeight());
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): Too fast for the rain");
+       Display.addString(Display.formatString(this, "Too fast for the rain"));
         break;
       } case "FOG": {
         coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1, coordinates.getHeight());
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): Too fast for the fog");
+       Display.addString(Display.formatString(this, "Too fast for the fog"));
         break;
       } case "SUN": {
         coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 10, coordinates.getHeight() + 2);
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): Too fast for the sun");
+       Display.addString(Display.formatString(this, "Too fast for the sun"));
         break;
       } case "SNOW": {
         coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 7);
-        System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): Too fast for the snow");
+       Display.addString(Display.formatString(this, "Too fast for the snow"));
         break;
       }
     }
     if (coordinates.getHeight() <= 0) {
-      System.out.println(this.getClass().getName() + "#" + this.name + "(" + this.id + "): is crashing.");
+     Display.addString(Display.formatString(this, "is crashing."));
       weatherTower.unregister(this);
     } else if (coordinates.getHeight() > 100)
       coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);
