@@ -1,4 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
+
 public class WeatherProvider {
     private static WeatherProvider weatherProvider = new WeatherProvider();
     private String weather[] = { "RAIN", "SUN", "FOG", "SNOW" };

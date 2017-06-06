@@ -1,3 +1,4 @@
+
 public class JetPlane extends Aircraft implements IFlyable {
   private WeatherTower weatherTower = new WeatherTower();
 

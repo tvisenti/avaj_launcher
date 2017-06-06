@@ -1,5 +1,4 @@
-find *.java > sources.txt
-javac @sources.txt
-java Simulator scenario.txt
-rm *.class sources.txt
+find *.java > sources.txt &&
+javac @sources.txt &&
+java Simulator scenario.txt &&
 cat simulation.txt
